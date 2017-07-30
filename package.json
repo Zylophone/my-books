@@ -5,6 +5,7 @@
   "dependencies": {
     "bulma": "^0.4.4",
     "escape-string-regexp": "^1.0.5",
+    "font-awesome": "^4.7.0",
     "form-serialize": "^0.7.2",
     "node-sass-chokidar": "0.0.3",
     "prop-types": "^15.5.10",
@@ -20,9 +21,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom"
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
   }
 }

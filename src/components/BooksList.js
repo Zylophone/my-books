@@ -11,10 +11,11 @@ class BooksOverview extends Component {
 		shelf: PropTypes.string.isRequired,
 		title: PropTypes.string.isRequired,
 		subtitle: PropTypes.string.isRequired,
+		moveTo: PropTypes.func.isRequired
 	}
 
 	render() {
-		const { books, shelf, title, subtitle } = this.props;
+		const { books, shelf, title, subtitle, moveTo } = this.props;
 
 		return (
 			<section className="section">
@@ -29,7 +30,7 @@ class BooksOverview extends Component {
 		      	<div className="columns">
 							{books.map((book) => (
 								<div key={book.id} className="column is-4">
-									<Book book={book}/>
+									<Book book={book} moveTo={moveTo}/>
 								</div>
 	          	))}
 	          </div>

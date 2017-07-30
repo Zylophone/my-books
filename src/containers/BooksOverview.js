@@ -17,8 +17,21 @@ class BooksOverview extends Component {
     })
   }
 
+  moveTo = (book, shelf) => {
+  	let { books } = this.state;
+
+  	BooksAPI.update(book, shelf).then((booksUpdated) => {
+  		this.setState({
+  			books : books.map((b) => {
+  				if (b.id === book.id) b.shelf = shelf
+  				return b
+  			})
+  		})
+  	})
+  }
+
 	render() {
-		const { books } = this.state;
+		let { books } = this.state;
 
 		let currentlyReadingBooks, wantToReadBooks, readBooks
 		currentlyReadingBooks = books.filter((book) => book.shelf === "currentlyReading")
@@ -37,9 +50,9 @@ class BooksOverview extends Component {
 	        </div>
 	      </section>
 
-	      <BooksList books={currentlyReadingBooks} shelf="currentlyReading" title="Currently Reading" subtitle="These are the books that you are reading right now."/>
-	      <BooksList books={wantToReadBooks} shelf="wantToRead"  title="Want to Read" subtitle="These are your pending books. What are you waiting for?"/>
-	      <BooksList books={readBooks} shelf="read"  title="Read" subtitle="These are the books that you have already read. Good job!"/>
+	      <BooksList moveTo={this.moveTo} books={currentlyReadingBooks} shelf="currentlyReading" title="Currently Reading" subtitle="These are the books that you are reading right now."/>
+	      <BooksList moveTo={this.moveTo} books={wantToReadBooks} shelf="wantToRead" title="Want to Read" subtitle="These are your pending books. What are you waiting for?"/>
+	      <BooksList moveTo={this.moveTo} books={readBooks} shelf="read" title="Read" subtitle="These are the books that you have already read. Good job!"/>
 			</div>
     )
 	}
