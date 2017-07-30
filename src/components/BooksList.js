@@ -27,7 +27,7 @@ class BooksOverview extends Component {
 		        {subtitle}
 		      </h2>
 		      <div className="content">	
-		      	<div className="columns">
+		      	<div className="columns is-multiline">
 							{books.map((book) => (
 								<div key={book.id} className="column is-4">
 									<Book book={book} moveTo={moveTo}/>
