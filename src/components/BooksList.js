@@ -9,8 +9,8 @@ class BooksOverview extends Component {
 	static propTypes = {
 		books: PropTypes.array.isRequired,
 		shelf: PropTypes.string.isRequired,
-		title: PropTypes.string.isRequired,
-		subtitle: PropTypes.string.isRequired,
+		title: PropTypes.string,
+		subtitle: PropTypes.string,
 		moveTo: PropTypes.func.isRequired
 	}
 

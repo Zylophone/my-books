@@ -48,13 +48,13 @@ class Book extends Component {
 						  </div>
 						  <div className="dropdown-menu" key="dropdown-menu" role="menu">
 						    <div className="dropdown-content">
-						      <a onClick={() => moveTo(book, 'currentlyReading')} className={"dropdown-item " + ((book.shelf == 'currentlyReading') ? 'is-active' : '')}>
+						      <a onClick={() => moveTo(book, 'currentlyReading')} className={"dropdown-item " + ((book.shelf === 'currentlyReading') ? 'is-active' : '')}>
 						        Currently Reading
 						      </a>
-						      <a onClick={() => moveTo(book, 'wantToRead')} className={"dropdown-item " + ((book.shelf == 'wantToRead') ? 'is-active' : '')}>
+						      <a onClick={() => moveTo(book, 'wantToRead')} className={"dropdown-item " + ((book.shelf === 'wantToRead') ? 'is-active' : '')}>
 						        Want to Read
 						      </a>
-						      <a onClick={() => moveTo(book, 'read')} className={"dropdown-item " + ((book.shelf == 'read') ? 'is-active' : '')}>
+						      <a onClick={() => moveTo(book, 'read')} className={"dropdown-item " + ((book.shelf === 'read') ? 'is-active' : '')}>
 						        Read
 						      </a>
 						    </div>
