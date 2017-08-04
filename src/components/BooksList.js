@@ -28,8 +28,8 @@ class BooksOverview extends Component {
 		      </h2>
 		      <div className="content">	
 		      	<div className="columns is-multiline">
-							{books.map((book) => (
-								<div key={book.id} className="column is-4">
+							{books.map((book, key) => (
+								<div key={book.id + '-' + key} className="column is-4">
 									<Book book={book} moveTo={moveTo}/>
 								</div>
 	          	))}

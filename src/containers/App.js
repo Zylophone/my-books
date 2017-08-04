@@ -32,11 +32,14 @@ class App extends Component {
     let { books } = this.state;
     book.shelf = shelf; //Not sure if this is correct
 
-    BooksAPI.update(book, shelf).then((booksUpdated) => {
-      this.setState({
-        books : books.concat([ book ])
+    if (books.filter((b) => b.id === book.id).length > 0) this.moveTo(book, shelf)
+    else {
+      BooksAPI.update(book, shelf).then((booksUpdated) => {
+        this.setState({
+          books : books.concat([ book ])
+        })
       })
-    })
+    }
   }
 
   render() {
@@ -71,6 +74,7 @@ class App extends Component {
           <Route path="/search" render={() => (
             <BooksSearch
               addTo={this.addTo}
+              books={this.state.books}
             />
           )}/>
         </div>

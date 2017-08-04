@@ -5,7 +5,8 @@ import * as BooksAPI from '../utils/BooksAPI';
 
 class BooksSearch extends Component {
 	static propTypes = {
-		addTo: PropTypes.func.isRequired
+		addTo: PropTypes.func.isRequired,
+		books: PropTypes.array.isRequired
 	}
 
 	state = {
@@ -14,19 +15,27 @@ class BooksSearch extends Component {
 	}
 
 	updateQuery = (query) => {
-		this.setState({ query: query.trim() })
+		this.setState({ query });
 
-    BooksAPI.search(query, 30).then((result) => {
-      if (result && !result.error) this.setState({ result })
+    BooksAPI.search(query, 20).then((result) => {
+      if (result && !result.error) { 
+      	this.setState({
+        	searchedBooks : result.map((searchedBook) => {
+        		this.props.books.forEach((b, key) => {
+	        		if (b.id === searchedBook.id) {
+	        			searchedBook.shelf = b.shelf
+	        		}
+        		});
+        		return searchedBook
+        	})
+        })
+      }
+      else this.setState({ searchedBooks: [] });
     })
 	}
 
-	clearQuery = () => {
-		this.setState({ query: '' })
-	}
-
 	render() {
-		let { addTo } = this.props
+		let { addTo, books } = this.props
 			, { query, searchedBooks } = this.state;
 
 		return (
@@ -39,8 +48,14 @@ class BooksSearch extends Component {
 	            </h1>
 
 							<div className="field">
-							  <div className="control has-icons-left has-icons-right">
-							    <input className="input" type="text" placeholder="Search a book..." value={query} onChange={(event) => this.updateQuery(event.target.value)}/>
+							  <div className="control has-icons-right">
+							    <input 
+							    	className="is-medium input" 
+							    	type="text" 
+							    	placeholder="Search books" 
+							    	value={query} 
+							    	onChange={(event) => this.updateQuery(event.target.value)}
+							    	/>
 							    <span className="icon is-small is-right">
 							      <i className="fa fa-search"></i>
 							    </span>
