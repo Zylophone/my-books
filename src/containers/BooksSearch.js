@@ -35,7 +35,7 @@ class BooksSearch extends Component {
 	}
 
 	render() {
-		let { addTo, books } = this.props
+		let { addTo } = this.props
 			, { query, searchedBooks } = this.state;
 
 		return (

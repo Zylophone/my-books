@@ -54,15 +54,16 @@ class App extends Component {
                 alt="My Books"
               />
             </Link>
-          </div>
-          <div className="navbar-menu">
-            <div className="navbar-end">
-            <Link to="/" className="navbar-item">Overview</Link>
-              <Link to="/search" className="navbar-item">Search</Link>
-            </div>
+            <Link to="/" className="navbar-item">
+              <span className="icon"><i className="fa fa-book"></i></span>
+              <span>Overview</span>
+            </Link>
+            <Link to="/search" className="navbar-item">
+              <span className="icon"><i className="fa fa-search"></i></span>
+              <span>Search</span>
+            </Link>
           </div>
         </nav>
-
 
         <div className="app">
           <Route exact path="/" render={() => (

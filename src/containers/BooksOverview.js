@@ -28,9 +28,9 @@ class BooksOverview extends Component {
 	        </div>
 	      </section>
 
-	      <BooksList moveTo={moveTo} books={currentlyReadingBooks} shelf="currentlyReading" title="Currently Reading" subtitle="These are the books that you are reading right now."/>
-	      <BooksList moveTo={moveTo} books={wantToReadBooks} shelf="wantToRead" title="Want to Read" subtitle="These are your pending books. What are you waiting for?"/>
-	      <BooksList moveTo={moveTo} books={readBooks} shelf="read" title="Read" subtitle="These are the books that you have already read. Good job!"/>
+	      <BooksList moveTo={moveTo} books={currentlyReadingBooks} title="Currently Reading" subtitle="These are the books that you are reading right now."/>
+	      <BooksList moveTo={moveTo} books={wantToReadBooks} title="Want to Read" subtitle="These are your pending books. What are you waiting for?"/>
+	      <BooksList moveTo={moveTo} books={readBooks} title="Read" subtitle="These are the books that you have already read. Good job!"/>
 			</div>
     )
 	}
