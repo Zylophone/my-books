@@ -5085,3 +5085,7 @@ label.panel-block {
   padding: 3rem 1.5rem 6rem; }
 
 /* Custom */
+.books-list-empty-state {
+  color: #a1a1a1;
+  font-size: 16px;
+  font-style: italic; }

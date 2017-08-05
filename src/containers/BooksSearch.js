@@ -65,7 +65,7 @@ class BooksSearch extends Component {
 	        </div>
 	      </section>
 
-	      <BooksList moveTo={addTo} books={searchedBooks} shelf="none"/>
+	      <BooksList moveTo={addTo} books={searchedBooks} title="Searched Books"/>
 			</div>
     )
 	}

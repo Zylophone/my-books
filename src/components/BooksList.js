@@ -30,6 +30,9 @@ class BooksOverview extends Component {
 								</div>
 	          	))}
 	          </div>
+	          {books.length === 0 && (
+							<span className="books-list-empty-state">No books available to display</span>
+						)}
 			    </div>
 		    </div>
 		  </section>
