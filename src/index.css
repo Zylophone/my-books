@@ -5094,3 +5094,7 @@ label.panel-block {
   border: 8px solid #512DA8;
   padding: 5px;
   border-radius: 5px; }
+
+.app-navbar-image {
+  width: 138px;
+  height: 28px; }

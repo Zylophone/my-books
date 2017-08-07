@@ -49,7 +49,7 @@ class App extends Component {
           <div className="navbar-brand">
             <Link className="navbar-item" to="/">
               <img 
-                style={{width: 138, height: 28}}
+                className="app-navbar-image"
                 src={require('../images/my-books-logo.png')}
                 alt="My Books"
               />
